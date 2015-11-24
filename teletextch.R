@@ -55,10 +55,23 @@ if (crea.new != crea.old) {
 	
 	## we remove the last two lines (with advertisements)
 	d <- d[1:418,,]
-	writePNG(d ,"hey.png")
 	
-	## we tweet the image without text
-	updateStatus("", mediaPath="hey.png")
+	d2 <- readPNG("hey2.png")
+
+	# if the pages are different but that not that much, it probably means that a misspell has been corrected
+	# in that case we delete the last status before going on
+	if (sum(d-d2) / length(d) > 0 & sum(d-d2) / length(d) < .015) {
+		us <- getUser("teletextch")
+		deleteStatus(userTimeline("teletextch", 1)[[1]])
+	}
+
+	# if you wanna test the condition above :
+	# test1 <- readPNG("test1.png")
+	# test2 <- readPNG("test2.png")
+	
+	# let's replace hey2.png for comparison next time
+	writePNG(d ,"hey2.png")
+	updateStatus("", mediaPath="hey2.png")
 	
 	## and let's save the date to compare next time!
 	cat(as.character(crea.new), file="lastdate.txt")	
