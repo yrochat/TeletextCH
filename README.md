@@ -1,5 +1,5 @@
 # TeletextCH
-A twitterbot that tweets [the page 104 of Swiss «RTS UN» Teletext](http://www.teletext.ch/RTSUn/104).
+A twitterbot that tweets [the page 103 of Swiss «RTS UN» Teletext](http://www.teletext.ch/RTSUn/103).
 
 The result is [here](https://twitter.com/TeletextCH).
 
