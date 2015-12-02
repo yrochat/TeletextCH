@@ -18,8 +18,9 @@ library(png)
 # crea <- dmy_hms(a$headers$'x-server-createdate')
 # cat(as.character(crea), file="lastdate.txt")
 
-## informations about the current page 104
-a <- GET("http://api.teletext.ch/online/pics/medium/RTSUn_104-0.gif")
+## informations about the current page 103
+url <- "http://api.teletext.ch/online/pics/medium/RTSUn_103-0.gif"
+a <- GET(url)
 
 ## is it a new one or an old one?
 crea.new <- dmy_hms(a$headers$'x-server-createdate')
@@ -41,7 +42,7 @@ if (crea.new != crea.old) {
 	setup_twitter_oauth(api_key, api_secret, access_token, access_token_secret)
 
 	## we download the image
-	download.file("http://api.teletext.ch/online/pics/medium/RTSUn_104-0.gif", "hey.gif")
+	download.file(url, "hey.gif")
 	a <- read.gif("hey.gif", frame=1)
 
 	## convert it from a .gif to a .png
