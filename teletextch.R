@@ -14,7 +14,7 @@ library(png)
 # setwd()
 
 ## initialisation (uncomment/comment: only the first time!)
-# a <- GET("http://api.teletext.ch/online/pics/medium/RTSUn_104-0.gif")
+# a <- GET("http://api.teletext.ch/online/pics/medium/RTSUn_103-0.gif")
 # crea <- dmy_hms(a$headers$'x-server-createdate')
 # cat(as.character(crea), file="lastdate.txt")
 
