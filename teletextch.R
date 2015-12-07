@@ -61,7 +61,7 @@ if (crea.new != crea.old) {
 
 	# if the pages are different but that not that much, it probably means that a misspell has been corrected
 	# in that case we delete the last status before going on
-	if (sum(d-d2) / length(d) > 0 & sum(d-d2) / length(d) < .03) {
+	if (sum(abs(d-d2)) / length(d) > 0 & sum(abs(d-d2)) / length(d) < .03) {
 		us <- getUser("teletextch")
 		deleteStatus(userTimeline("teletextch", 1)[[1]])
 	}
