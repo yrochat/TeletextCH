@@ -43,7 +43,6 @@ if (crea.new != crea.old) {
 
 	## we download the image
 	download.file(url, "hey.gif")
-	a <- read.gif("hey.gif", frame=1)
 
 	## convert it from a .gif to a .png
 	## convert comes from imageMagick
