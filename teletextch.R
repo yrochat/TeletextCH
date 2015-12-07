@@ -50,17 +50,16 @@ if (crea.new != crea.old) {
 
 	## we add columns to the left and the right in order to fit in Twitter format
 	b <- readPNG("hey.png")
-	d <- array(0, dim=c(460, 840, 3))
-	for (i in 1:3) d[,,i] <- cbind(matrix(as.integer(0), nrow=460, ncol=100), b[,,i], matrix(as.integer(0), nrow=460, ncol=100))
 	
 	## we remove the last two lines (with advertisements)
 	d <- d[1:418,,]
 	
+	## hey2.png must be manually created during the initialisation phase
 	d2 <- readPNG("hey2.png")
 
 	# if the pages are different but that not that much, it probably means that a misspell has been corrected
 	# in that case we delete the last status before going on
-	if (sum(abs(d-d2)) / length(d) > 0 & sum(abs(d-d2)) / length(d) < .03) {
+	if (sum(d!=d2) / length(d) > 0 & sum(d!=d2) / length(d) < .03) {
 		us <- getUser("teletextch")
 		deleteStatus(userTimeline("teletextch", 1)[[1]])
 	}
