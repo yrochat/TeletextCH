@@ -69,8 +69,10 @@ if (crea.new != crea.old) {
 	# test2 <- readPNG("test2.png")
 	
 	# let's replace hey2.png for comparison next time
-	writePNG(d ,"hey2.png")
-	updateStatus("", mediaPath="hey2.png")
+	if (sum(d!=d2) {
+		writePNG(d ,"hey2.png")
+		updateStatus("", mediaPath="hey2.png")
+	}
 	
 	## and let's save the date to compare next time!
 	cat(as.character(crea.new), file="lastdate.txt")	
