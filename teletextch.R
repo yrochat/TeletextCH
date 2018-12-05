@@ -74,7 +74,7 @@ if (crea.new != crea.old) {
 		## let's replace hey2.png for comparison next time
 		writePNG(d,"hey2.png")			
 		
-		## we remore the first two lines for the OCR
+		## we remove the first two lines for the OCR
 		writePNG(d[42:460,,],"hey3.png")
 		
 		## the OCR
