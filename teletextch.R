@@ -5,15 +5,16 @@ rm(list=ls())
 
 library(httr)		# used to download Teletext images
 library(lubridate)	# deals with dates
-library(base64enc)	# not used anymore?
 library(twitteR)	# obvious
-library(caTools)	# not used anymore?
 library(png)		# deals with PNG
 library(tesseract)	# OCR
 library(stringr)	# split expressions
 
 ## choose a working directory 
 # setwd()
+
+## preparing tesseract french engine
+fra <- tesseract("fra")
 
 ## initialisation (uncomment/comment: only the first time!)
 # a <- GET("http://api.teletext.ch/online/pics/medium/RTSUn_103-0.gif")
@@ -75,10 +76,11 @@ if (crea.new != crea.old) {
 		writePNG(d,"hey2.png")			
 		
 		## we remove the first two lines for the OCR
-		writePNG(d[42:460,,],"hey3.png")
+		# Previoulsy removing up to 42, now 36 for more space above text to improve OCR 
+		writePNG(d[36:460,,],"hey3.png")
 		
 		## the OCR
-		txt <- ocr("hey3.png")
+		txt <- ocr("hey3.png", engine=fra)
 		
 		## post tweet
 		updateStatus(str_split(txt, "\n")[[1]][1], mediaPath="hey2.png")
